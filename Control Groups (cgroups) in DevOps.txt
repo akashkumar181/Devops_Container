@@ -1,0 +1,50 @@
+Control Groups (cgroups) in DevOps
+
+In containerization and DevOps infrastructure, cgroups (Control Groups) are a Linux kernel feature used to limit, control, and monitor system resources used by processes.
+They are one of the core technologies behind containers like Docker and Kubernetes.
+
+What are cgroups?
+
+Definition
+
+A Control Group (cgroup) is a Linux kernel mechanism that controls how much CPU, memory, disk I/O, and network resources a process can use.
+
+👉 In simple words:
+
+cgroups = Resource manager for processes
+
+It allows the OS to allocate, prioritize, and limit system resources for groups of processes.
+Why cgroups are Important in DevOps
+
+In modern DevOps infrastructure, multiple applications run on the same server using containers.
+
+Without cgroups:
+
+❌ One application could consume all CPU or memory
+❌ Other applications could crash or slow down
+
+With cgroups:
+
+✅ Each container gets fixed resources
+✅ No container can overuse the system
+
+Relationship with Containers
+
+Containers use two main Linux features:
+
+Feature	Purpose
+Namespaces	Isolation
+cgroups
+3Resource limits
+
+Example with Docker container
+
+When you run:
+
+docker run --memory=512m --cpus=1 nginx
+
+Docker internally uses cgroups to enforce:
+
+Memory limit = 512 MB
+
+CPU limit = 1 core
