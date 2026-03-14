@@ -1,0 +1,122 @@
+📦 Container Image (DevOps / Docker)
+
+A Container Image is a read-only template used to create containers.
+It contains everything required to run an application:
+
+Application code
+Runtime (Java, Python, Node, etc.)
+System libraries
+Dependencies
+Configuration files
+
+👉 In simple words:
+Container Image = Blueprint / Snapshot of an application environment.
+
+When we run this image, it creates a container.
+🧱 Structure of a Container Image
+
+A container image is built in layers.
+
+Example layers:
+
+Base OS layer
+Runtime layer
+Library layer
+Application code layer
+Purpose of Layering System:
+The layering system improves reusability, build efficiency, storage optimization, and faster image distribution by dividing container images into reusable layers.
+
+
+Container Image = Materials + Instructions
+Container = Final Running Building
+Container Image: A packaged template containing application code, dependencies, and environment needed to run a container.
+Container: A running instance created from a container image.
+Image Registry (Container Image Registry)
+
+An Image Registry is a storage and distribution system for container images.
+It is a central place where container images are stored, managed, and shared.
+
+Purpose of an Image Registry
+Store container images
+Share images with teams or systems
+Download images to run containers
+Manage versions of images
+A centralized repository used to store, manage, and distribute container images.
+Without Image Registry
+
+Image stored locally on the same machine
+Image created using docker build
+Container runs only on that system
+No sharing with other machines
+Used mainly for development and testing
+Faster because no network transfer
+
+Example workflow:
+Build Image → Run Container
+With Image Registry
+
+Image stored in a central repository
+Images can be shared across multiple systems
+Images are pushed and pulled from a registry
+Used in DevOps, CI/CD pipelines, and production
+Allows version control of images
+
+Example registries:
+Docker Hub
+Amazon Elastic Container Registry
+Example workflow:
+Build Image → Push to Registry → Pull Image → Run Container
+📊 Key Difference
+
+Without Registry: Image used only on the local system
+With Registry: Image stored centrally and shared across systems
+
+Public Image Registry
+
+Open for everyone
+Anyone can push or pull images
+Used for open-source applications
+Free images are available
+No strict access control
+Private Image Registry
+
+Access restricted to a company or team
+Requires authentication (username/password)
+Used for company applications
+Provides better security and control
+Images are not publicly available
+Image registries are of two types: Public registries, accessible by anyone, and Private registries, restricted to authorized users or organizations.
+Image naming convention:
+Container images follow the format registry/username/image-name:tag, which identifies the image location, owner, application name, and version.
+Tags
+
+A tag is a label attached to a container image.
+It helps identify a specific version of the image.
+Written after a colon (:) in the image name.
+Example:
+nginx:latest
+nginx:1.21
+python:3.10
+Here:
+nginx → image name
+latest, 1.21 → tags
+Role of Image Registries in CI/CD
+Key Roles (Bullet Points)
+Central storage for images
+Stores container images built during the CI process.
+Version management
+Each build is stored with a tag/version, allowing tracking of releases.
+Sharing images across environments
+The same image can be used in development, testing, staging, and production.
+Supports automated pipelines
+CI/CD tools build the image and push it to the registry automatically.
+Deployment source
+Deployment tools pull the image from the registry to run containers.
+Consistency across systems
+Ensures the same image runs everywhere, reducing “works on my machine” issues.
+Security and access control
+Private registries restrict access and can scan images for vulnerabilities.
+
+Push: Uploading a container image from a local system to an image registry.
+
+Pull: Downloading a container image from a registry to the local system to run containers.
