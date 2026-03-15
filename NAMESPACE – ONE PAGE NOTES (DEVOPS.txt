@@ -1,0 +1,93 @@
+NAMESPACE – ONE PAGE NOTES (DEVOPS / CONTAINERS)
+
+Definition:
+Namespace is a feature of the Linux kernel that provides isolation of system resources for a group of processes. 
+It allows containers to run independently on the same operating system.
+
+Container technologies like Docker and Kubernetes use namespaces.
+
+Purpose of Namespace:
+- Process isolation
+- Network isolation
+- Filesystem isolation
+- Security between containers
+- Separate environment for applications
+
+Types of Linux Namespaces:
+
+1. PID Namespace (Process ID)
+Purpose: Isolates process IDs.
+Each container has its own process tree.
+
+Example:
+Container A → PID 1 = nginx
+Container B → PID 1 = apache
+
+2. NET Namespace (Network)
+Purpose: Provides separate network stack for containers.
+
+Includes:
+- IP address
+- Routing table
+- Network interfaces
+- Ports
+
+Example:
+Container A → IP 172.17.0.2
+Container B → IP 172.17.0.3
+
+3. MNT Namespace (Mount Namespace)
+Purpose: Isolates filesystem mount points.
+
+Each container gets its own view of the filesystem.
+
+Example:
+Container filesystem → /app /logs /tmp
+
+4. IPC Namespace (Inter Process Communication)
+Purpose: Isolates communication between processes.
+
+Includes:
+- Message queues
+- Shared memory
+- Semaphores
+
+Processes inside one container cannot access IPC resources of another container.
+
+5. UTS Namespace
+UTS = Unix Time Sharing
+
+Purpose: Allows containers to have different hostnames and domain names.
+
+Example:
+Container A → hostname = web-server
+Container B → hostname = database-server
+
+6. USER Namespace
+Purpose: Isolates user IDs and group IDs.
+
+Example:
+Root user inside container is different from root user on host system.
+This improves security.
+
+7. CGROUP Namespace
+Purpose: Works with control groups to limit resources.
+
+Controls:
+- CPU usage
+- Memory usage
+- Disk I/O
+- Network usage
+
+Example:
+Container A → 1GB RAM
+Container B → 512MB RAM
+
+Quick Summary:
+Namespace provides isolation between containers.
+
+Namespace → Controls visibility of resources
+Cgroups → Controls resource limits
+
+Exam Definition:
+Namespace is a Linux kernel feature that isolates system resources such as processes, network, filesystem, and users for containers.
