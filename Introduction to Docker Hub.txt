@@ -1,0 +1,133 @@
+Introduction to Docker Hub
+
+Features
+
+📁 Public & Private Repositories
+→ Share with everyone or keep it private
+
+⚡ Pre-built Images
+→ Ready-made images (Ubuntu, MySQL, Node, etc.)
+
+🔄 Automated Builds
+→ Connect GitHub → auto build images
+
+🔔 Webhooks
+→ Trigger CI/CD pipelines automatically
+
+🔐 Security & Trusted Images
+→ Official verified images available
+
+🔹 1. Docker Client
+
+Interface used by the user to interact with Docker
+
+Commands are executed from here
+
+Examples:
+
+docker run
+
+docker build
+
+docker pull
+
+👉 Role: Sends commands
+
+🔹 2. Docker Daemon (dockerd)
+
+Background service / Docker engine
+
+Performs actual operations
+
+Responsibilities:
+
+Run containers
+
+Manage images
+
+Handle networks and volumes
+
+👉 Role: Executes commands
+
+🔹 3. Docker Image
+
+Read-only template (blueprint of application)
+
+Contains everything needed to run an app
+
+Includes:
+
+Application code
+
+Libraries
+
+Dependencies
+
+Configuration
+
+👉 Role: Base for creating containers
+
+🔹 4. Docker Container
+
+Running instance of a Docker image
+
+Lightweight and fast
+
+Features:
+
+Isolated environment
+
+Portable across systems
+
+👉 Role: Runs the application
+
+🔹 5. Docker Registry
+
+Storage system for Docker images
+
+Types:
+
+Public (e.g., Docker Hub)
+
+Private registry
+
+👉 Role: Store and distribute images
+
+🔹 6. Docker Hub (Important)
+
+Cloud-based Docker registry
+
+Used to upload and download images
+
+Features:
+
+Public and private repositories
+
+Official images
+
+Automated builds
+
+CI/CD integration
+
+🔹 7. Key Components of Docker Hub
+
+Repositories → Store images
+
+Images → Application packages
+
+Tags → Version control (v1, latest)
+
+User/Organization → Access management
+
+Authentication → Security
+
+Automated Builds → Auto image creation
+
+Life Cycle
+| State   | Meaning                           |
+| ------- | --------------------------------- |
+| Created | Container created but not started |
+| Running | Application is running            |
+| Paused  | Temporarily stopped               |
+| Stopped | Execution stopped                 |
+| Deleted | Container removed                 |
