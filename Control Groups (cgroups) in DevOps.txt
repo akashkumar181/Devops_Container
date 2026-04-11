@@ -9,7 +9,7 @@ Definition
 
 A Control Group (cgroup) is a Linux kernel mechanism that controls how much CPU, memory, disk I/O, and network resources a process can use.
 
-👉 In simple words:
+In simple words:
 
 cgroups = Resource manager for processes
 
@@ -19,14 +19,13 @@ Why cgroups are Important in DevOps
 In modern DevOps infrastructure, multiple applications run on the same server using containers.
 
 Without cgroups:
-
-❌ One application could consume all CPU or memory
-❌ Other applications could crash or slow down
+One application could consume all CPU or memory
+Other applications could crash or slow down
 
 With cgroups:
 
-✅ Each container gets fixed resources
-✅ No container can overuse the system
+Each container gets fixed resources
+No container can overuse the system
 
 Relationship with Containers
 

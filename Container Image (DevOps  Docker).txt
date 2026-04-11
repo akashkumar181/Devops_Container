@@ -1,4 +1,4 @@
-📦 Container Image (DevOps / Docker)
+ Container Image (DevOps / Docker)
 
 A Container Image is a read-only template used to create containers.
 It contains everything required to run an application:
@@ -9,11 +9,11 @@ System libraries
 Dependencies
 Configuration files
 
-👉 In simple words:
+In simple words:
 Container Image = Blueprint / Snapshot of an application environment.
 
 When we run this image, it creates a container.
-🧱 Structure of a Container Image
+Structure of a Container Image
 
 A container image is built in layers.
 
@@ -66,7 +66,7 @@ Docker Hub
 Amazon Elastic Container Registry
 Example workflow:
 Build Image → Push to Registry → Pull Image → Run Container
-📊 Key Difference
+Key Difference
 
 Without Registry: Image used only on the local system
 With Registry: Image stored centrally and shared across systems
