@@ -1,0 +1,90 @@
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Try the new cross-platform PowerShell https://aka.ms/pscore6
+
+PS C:\Users\DELL> docker pull httpd
+Using default tag: latest
+latest: Pulling from library/httpd
+09625190bc81: Pull complete
+4f4fb700ef54: Pull complete
+a1897530540b: Pull complete
+753dca1c3a38: Pull complete
+512f7c550d54: Download complete
+7a18bfe8c86e: Download complete
+Digest: sha256:331548c5249bdeced0f048bc2fb8c6b6427d2ec6508bed9c1fec6c57d0b27a60
+Status: Downloaded newer image for httpd:latest
+PS C:\Users\DELL> ocker run -dit -p 8080:80 --name apache-web httpd
+spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ ocker run -dit -p 8080:80 --name apache-web httpd
++ ~~~~~
+    + FullyQualifiedErrorId : CommandNotFoundException
+ 
+4c770662b617ee90ad863ae7ab095f625819835f001223e42ca629ecad4b270b
+PS C:\Users\DELL> docker ps
+CONTAINER ID   IMAGE     COMMAND              CREATED          STATUS          PORTS                                     NAM
+ES
+4c770662b617   httpd     "httpd-foreground"   56 seconds ago   Up 43 seconds   0.0.0.0:8080->80/tcp, [::]:8080->80/tcp   apa
+che-web
+PS C:\Users\DELL> docker exec -it 4c770662b617ee90ad863ae7ab095f625819835f001223e42ca629ecad4b270b /bin/bash
+root@4c770662b617:/usr/local/apache2# exit
+PS C:\Users\DELL> cd usr/local/apache2/htdocs
+cd : Cannot find path 'C:\Users\DELL\usr\local\apache2\htdocs' because it does not exist.
+At line:1 char:1
++ cd usr/local/apache2/htdocs
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (C:\Users\DELL\usr\local\apache2\htdocs:String) [Set-Location], ItemNotFound  
+   Exception
+    + FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.SetLocationCommand
+ 
+PS C:\Users\DELL> ls /
+
+
+    Directory: C:\
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----        09-03-2026     10:24                hadoopsetup
+d-----        06-01-2026     12:06                inetpub
+d-----        15-03-2026     21:26                Java
+d-r---        22-03-2026     17:58                Program Files
+d-r---        15-03-2026     20:48                Program Files (x86)
+d-----        09-03-2026     10:51                tmp
+d-r---        31-01-2024     18:21                Users
+d-----        21-03-2026     10:57                Windows
+-a----        30-07-2025     09:29            108 logUploaderSettings_temp.ini
+
+PS C:\Users\DELL> docker exec -it apache-web /bin/bash
+root@4c770662b617:/usr/local/apache2# cd htdocs
+root@4c770662b617:/usr/local/apache2/htdocs# echo "how are you ?" > index.html
+root@4c770662b617:/usr/local/apache2/htdocs# cat index.html
+how are you ?
+index.html
+root@4c770662b617:/usr/local/apache2/htdocs# exit
+exit
+PS C:\Users\DELL> docker exec -it apache-web /bin/bash
+root@4c770662b617:/usr/local/apache2# cd htdocs
+root@4c770662b617:/usr/local/apache2/htdocs# cat index.html
+how are you ?
+root@4c770662b617:/usr/local/apache2/htdocs# exit
+PS C:\Users\DELL> ocker run -dit -p 8080:80 --name apache-web httpd
+ocker : The term 'ocker' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the   
+spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ ocker run -dit -p 8080:80 --name apache-web httpd
+    + CategoryInfo          : ObjectNotFound: (ocker:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+ 
+PS C:\Users\DELL> docker run -dit -p 8080:80 --name apache-web httpd
+docker: Error response from daemon: Conflict. The container name "/apache-web" is already in use by container "4c770662b617e
+e90ad863ae7ab095f625819835f001223e42ca629ecad4b270b". You have to remove (or rename) that container to be able to reuse that
+ name.
+
+Run 'docker run --help' for more information
+PS C:\Users\DELL> docker ps
+CONTAINER ID   IMAGE     COMMAND              CREATED       STATUS       PORTS                                     NAMES    
+4c770662b617   httpd     "httpd-foreground"   2 hours ago   Up 2 hours   0.0.0.0:8080->80/tcp, [::]:8080->80/tcp   apache-we
+b
+PS C:\Users\DELL>

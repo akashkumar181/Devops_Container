@@ -1,0 +1,27 @@
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Try the new cross-platform PowerShell https://aka.ms/pscore6
+PS C:\Users\DELL> docer pull nginx
+docer : The term 'docer' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the   
+spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ docer pull nginx
+    + CategoryInfo          : ObjectNotFound: (docer:String) [], CommandNotFoundException
+ 
+PS C:\Users\DELL> docker pull nginx
+Using default tag: latest
+latest: Pulling from library/nginx
+Status: Image is up to date for nginx:latest
+PS C:\Users\DELL> docker run -d -p 8080:80 --name mynginx nginx
+415b0a6aeea579d6dcea1abbb0b0fb0f2743ea4bce07ef8eb6624eddb6ce3c21
+PS C:\Users\DELL> docker ps
+CONTAINER ID   IMAGE     COMMAND                  CREATED         STATUS         PORTS                                     N
+AMES
+415b0a6aeea5   nginx     "/docker-entrypoint.…"   4 minutes ago   Up 4 minutes   0.0.0.0:8080->80/tcp, [::]:8080->80/tcp   m
+ynginx
+PS C:\Users\DELL> docker stop mynginx
+mynginx
+PS C:\Users\DELL> docker start 415b0a6aeea579d6dcea1abbb0b0fb0f2743ea4bce07ef8eb6624eddb6ce3c21
+415b0a6aeea579d6dcea1abbb0b0fb0f2743ea4bce07ef8eb6624eddb6ce3c21
+PS C:\Users\DELL>

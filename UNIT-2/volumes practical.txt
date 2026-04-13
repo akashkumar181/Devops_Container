@@ -1,0 +1,119 @@
+docker create volume <volume-name>
+docker volume ls
+docker volume inspect mydata
+docker run -d -v <volumename>:<path where to store in image> --name <containername> <imagename>
+
+docker volume create mydata
+docker volume ls
+docker volume inspect mydata
+docker run -dit --name contr -v vol:/app/data ubuntu
+docker exec -it mycontainer ls /app/data
+docker inspect mycontainer
+docker rm -f mycontainer
+docer volume rm mydata
+docker volume prune
+
+"Mountpoint": "/var/lib/docker/volumes/mydata/_data",
+        "Name": "mydata",
+
+difference between -d and -dit
+
+docker exec -it mycontainer ls /bin/bash
+cd app/data
+touch a.txt
+echo "hello" >>a.txt
+
+
+PS C:\Users\DELL> docker volume create vol
+vol
+PS C:\Users\DELL> docker volume ls
+DRIVER    VOLUME NAME
+local     mydata
+local     v1
+PS C:\Users\DELL> dcoker volume inspect vol
+dcoker : The term 'dcoker' is not recognized as the name of a cmdlet, function, script file, or operable program. Check     
+the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ dcoker volume inspect vol
++ ~~~~~~
+    + CategoryInfo          : ObjectNotFound: (dcoker:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+ 
+PS C:\Users\DELL> docker volume inspect vol
+[
+        "CreatedAt": "2026-04-03T07:52:29Z",
+        "Driver": "local",
+        "Labels": null,
+        "Mountpoint": "/var/lib/docker/volumes/vol/_data",
+        "Name": "vol",
+        "Scope": "local"
+]
+PS C:\Users\DELL> docker run -dit --name contr
+Usage:  docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
+
+See 'docker run --help' for more information
+PS C:\Users\DELL> docker run -dit --name contr -v vol:/app/data ubuntu
+e2ffa13cd1cd2969b3470ccd5817277b83ff53caf98ca31cce4c64b3b70b0e8f
+PS C:\Users\DELL> docker exec -it contr /app/data
+OCI runtime exec failed: exec failed: unable to start container process: exec: "/app/data": is a directory: permission denie
+d
+PS C:\Users\DELL> docker exec -it contr ls /app/data
+PS C:\Users\DELL> docker exec -it contr /bin/bash   
+root@e2ffa13cd1cd:/# touch ctr.txt
+root@e2ffa13cd1cd:/# echo "hello , how are you \n bye bye " >>ctr.txt
+root@e2ffa13cd1cd:/# cat ctr.txt
+hello , how are you \n bye bye 
+root@e2ffa13cd1cd:/# exit
+exit
+PS C:\Users\DELL>
+
+
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+
+PS C:\Users\DELL> docker volume create projectdata
+projectdata
+PS C:\Users\DELL> docker volume ls
+DRIVER    VOLUME NAME
+local     mydata
+local     projectdata
+local     v1
+PS C:\Users\DELL> dcoker volume inspect projectdata
+dcoker : The term 'dcoker' is not recognized as the name of a cmdlet, function, script file, or operable program. Check     
+the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ dcoker volume inspect projectdata
++ ~~~~~~
+    + CategoryInfo          : ObjectNotFound: (dcoker:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+ 
+PS C:\Users\DELL> docker volume inspect projectdata
+[
+        "CreatedAt": "2026-04-03T07:58:57Z",
+        "Driver": "local",
+        "Labels": null,
+        "Name": "projectdata",
+    }
+PS C:\Users\DELL> docker run -dit --name project_container projectdata:/app/data ubuntu
+docker: invalid reference format
+Run 'docker run --help' for more information
+PS C:\Users\DELL> docker run -dit --name project_container -v projectdata:/app/data ubuntu 
+a43f89076d625cbc6bcba96aeede3b601dd481b4d36a3fd3b9230d7cc4177094
+PS C:\Users\DELL> docker exec -it project_container ls /app/data
+PS C:\Users\DELL> docker exec -it project_container ls /bin/bash
+/bin/bash
+PS C:\Users\DELL> docker exec -it project_container /bin/bash   
+PS C:\Users\DELL> docker exec -it project_container sh -c "echo This is my first volume" > /app/data/report.txt
+out-file : Could not find a part of the path 'C:\app\data\report.txt'.
+At line:1 char:1
++ docker exec -it project_container sh -c "echo This is my first volume ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : OpenError: (:) [Out-File], DirectoryNotFoundException
+    + FullyQualifiedErrorId : FileOpenFailure,Microsoft.PowerShell.Commands.OutFileCommand
+ 
+PS C:\Users\DELL> docker exec -it project_container sh -c "echo This is my first volume > /app/data/report.txt"
+PS C:\Users\DELL> docker exec -it project_container cat /app/data/report.txt
+This is my first volume
+PS C:\Users\DELL> ^C
+PS C:\Users\DELL> 

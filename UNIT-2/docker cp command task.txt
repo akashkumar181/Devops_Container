@@ -1,0 +1,42 @@
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Try the new cross-platform PowerShell https://aka.ms/pscore6
+PS C:\Users\DELL> docker start sha256:331548c5249bdeced0f048bc2fb8c6b6427d2ec6508bed9c1fec6c57d0b27a60
+failed to start containers: sha256:331548c5249bdeced0f048bc2fb8c6b6427d2ec6508bed9c1fec6c57d0b27a60
+PS C:\Users\DELL> docker start 4c770662b617ee90ad863ae7ab095f625819835f001223e42ca629ecad4b270b
+4c770662b617ee90ad863ae7ab095f625819835f001223e42ca629ecad4b270b
+PS C:\Users\DELL> docker exec -it 4c770662b617ee90ad863ae7ab095f625819835f001223e42ca629ecad4b270b bash
+root@4c770662b617:/usr/local/apache2# mkdir project
+root@4c770662b617:/usr/local/apache2# cat >>report.txt
+This is our Container interaction with our host machine
+report.txt
+PS C:\Users\DELL> cat report.txt
+cat : Cannot find path 'C:\Users\DELL\report.txt' because it does not exist.
+At line:1 char:1
++ ~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (C:\Users\DELL\report.txt:String) [Get-Content], ItemNotFoundException        
+    + FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetContentCommand
+ 
+PS C:\Users\DELL> docker exec -it 4c770662b617ee90ad863ae7ab095f625819835f001223e42ca629ecad4b270b bash
+root@4c770662b617:/usr/local/apache2# cat report.txt
+This is our Container interaction with our host machine
+root@4c770662b617:/usr/local/apache2# cat >>notes.txt
+hello this is the appended text within this, started from report.txt
+PS C:\Users\DELL> docker exec -it 4c770662b617ee90ad863ae7ab095f625819835f001223e42ca629ecad4b270b bash
+root@4c770662b617:/usr/local/apache2# cat report.txt
+This is our Container interaction with our host machine
+root@4c770662b617:/usr/local/apache2# ls
+bin  build  cgi-bin  conf  error  htdocs  icons  include  logs  modules  notes.txt  project  report.txt
+root@4c770662b617:/usr/local/apache2# docker cp 4c770662b617ee90ad863ae7ab095f625819835f001223e42ca629ecad4b270b:^C
+apache2
+bash: docker: command not found
+root@4c770662b617:/usr/local/apache2# exit
+exit
+PS C:\Users\DELL> docker cp 4c770662b617ee90ad863ae7ab095f625819835f001223e42ca629ecad4b270b:/usr/local/apache2/project/repo
+rt.txt D:/
+Error response from daemon: Could not find the file /usr/local/apache2/project/report.txt in container 4c770662b617ee90ad863
+ae7ab095f625819835f001223e42ca629ecad4b270b
+PS C:\Users\DELL> docker cp 4c770662b617ee90ad863ae7ab095f625819835f001223e42ca629ecad4b270b:/usr/local/apache2/report.txt D
+:/
+Successfully copied 2.05kB to D:\
+PS C:\Users\DELL>

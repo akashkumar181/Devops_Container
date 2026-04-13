@@ -1,0 +1,211 @@
+"Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 0,
+            "NanoCpus": 0,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": [],
+            "BlkioDeviceReadBps": [],
+            "BlkioDeviceWriteBps": [],
+            "BlkioDeviceReadIOps": [],
+            "BlkioDeviceWriteIOps": [],
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": [],
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "MemoryReservation": 0,
+            "MemorySwap": 0,
+            "MemorySwappiness": null,
+            "OomKillDisable": null,
+            "PidsLimit": null,
+            "Ulimits": [],
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "MaskedPaths": [
+                "/proc/acpi",
+                "/proc/asound",
+                "/proc/interrupts",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/sys/devices/virtual/powercap",
+                "/sys/firmware"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ]
+        },
+        "Storage": {
+            "RootFS": {
+                "Snapshot": {
+                    "Name": "overlayfs"
+                }
+            }
+        },
+        "Mounts": [],
+        "Config": {
+            "Hostname": "e724fe9cb6ab",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "Tty": true,
+            "OpenStdin": true,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+            ],
+            "Cmd": [
+                "/bin/bash"
+            ],
+            "Image": "ubuntu",
+            "Volumes": null,
+            "WorkingDir": "",
+            "Entrypoint": null,
+            "Labels": {
+                "org.opencontainers.image.ref.name": "ubuntu",
+                "org.opencontainers.image.version": "24.04"
+            },
+            "StopTimeout": 1
+        },
+        "NetworkSettings": {
+            "SandboxID": "f612ba485e52b65e9b07b5eceac499307d30a2fed250d89ddb981f27728dd722",
+            "SandboxKey": "/var/run/docker/netns/f612ba485e52",
+            "Ports": {},
+            "Networks": {
+                "bridge": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": null,
+                    "DriverOpts": null,
+                    "GwPriority": 0,
+                    "NetworkID": "b02157de2ab55b5a2ff579c346108e4941b2a46a008443b959cbb9c48df1d8cb",
+                    "EndpointID": "a9345fc963408ca850571ce792196cde83abee0514a49068e22826731613a131",
+                    "Gateway": "172.17.0.1",
+                    "IPAddress": "172.17.0.2",
+                    "MacAddress": "02:1e:98:d9:9b:6b",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "DNSNames": null
+                }
+            }
+        },
+        "ImageManifestDescriptor": {
+            "mediaType": "application/vnd.oci.image.manifest.v1+json",
+            "digest": "sha256:67efaecc0031a612cf7bb3c863407018dbbef0a971f62032b77aa542ac8ac0d2",
+            "size": 424,
+            "annotations": {
+                "com.docker.official-images.bashbrew.arch": "amd64",
+                "org.opencontainers.image.base.name": "scratch",
+                "org.opencontainers.image.created": "2026-02-17T00:00:00Z",
+                "org.opencontainers.image.revision": "ccbfed8fb39874668fd747db8da268d2a03f3d50",
+                "org.opencontainers.image.source": "https://git.launchpad.net/cloud-images/+oci/ubuntu-base",
+e724fe9cb6ab   myubuntu   0.00%     912KiB / 1.764GiB   0.05%     1.17kB / 126B   0B / 0B     1
+
+UID                 PID                 PPID                C                   STIME               TTY                 TIME
+                CMD
+root                453                 430                 0                   07:51               pts/0               00:0
+0:00            /bin/bash
+PS C:\Users\DELL> docker volume create v1
+v1
+PS C:\Users\DELL> docker volume ls
+DRIVER    VOLUME NAME
+local     v1
+PS C:\Users\DELL> docker volume inspect v1
+[
+        "CreatedAt": "2026-03-19T08:01:56Z",
+        "Labels": null,
+        "Name": "v1",
+        "Options": null,
+        "Scope": "local"
+    }
+PS C:\Users\DELL> docker volume create v2
+PS C:\Users\DELL> docker volume rm v2
+v2
+PS C:\Users\DELL> docker network ls
+NETWORK ID     NAME      DRIVER    SCOPE
+b02157de2ab5   bridge    bridge    local
+c4632bb09c38   host      host      local
+b024150c32b4   none      null      local
+PS C:\Users\DELL> docker network create N1
+8cad543774d1f612d1885e645e925376d5e8c28cc70d8885f8b2af139f48541e
+PS C:\Users\DELL> docker inspect N1
+[
+    {
+        "Name": "N1",
+        "Id": "8cad543774d1f612d1885e645e925376d5e8c28cc70d8885f8b2af139f48541e",
+        "Created": "2026-03-19T08:13:08.316796109Z",
+        "Scope": "local",
+        "Driver": "bridge",
+        "EnableIPv4": true,
+        "EnableIPv6": false,
+        "IPAM": {
+            "Driver": "default",
+            "Options": {},
+            "Config": [
+                {
+                    "Subnet": "172.18.0.0/16",
+                    "Gateway": "172.18.0.1"
+                }
+            ]
+        },
+        "Internal": false,
+        "Attachable": false,
+        "Ingress": false,
+        "ConfigFrom": {
+            "Network": ""
+        },
+        "ConfigOnly": false,
+        "Options": {
+            "com.docker.network.enable_ipv4": "true",
+            "com.docker.network.enable_ipv6": "false"
+        },
+        "Labels": {},
+        "Containers": {},
+        "Status": {
+            "IPAM": {
+                    "172.18.0.0/16": {
+                        "IPsInUse": 3,
+                    }
+            }
+        }
+    }
+]
+PS C:\Users\DELL> docker create network n2
+Unable to find image 'network:latest' locally
+Error response from daemon: pull access denied for network, repository does not exist or may require 'docker login'
+PS C:\Users\DELL> docker network create n2
+14facff7ffabd5f23b040fb208ae478dc234e66ed689b2e4c1b120e2f9133715
+PS C:\Users\DELL> docker network rm n2
+n2
+PS C:\Users\DELL>

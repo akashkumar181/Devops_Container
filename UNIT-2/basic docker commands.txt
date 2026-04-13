@@ -1,0 +1,83 @@
+docker --version
+docker info
+docker history httpd -> IMAGE	CREATED	  CREATED BY   SIZE    COMMENT
+docker pull httpd
+docker images
+docker run [OPTIONS] IMAGE [CONTAINER][ARG....]
+	-it, -d, --name, --rm, -p, -e/--env, -v
+
+	-p for publish port (optional)
+	docker run -p <HOST_PORT>:<CONTAINER_RUNNING> <IMAGE_NAME> 
+
+	8080:80
+	host machine: running container (local)
+
+     *****docker run httpd echo "Hello, World!!"
+
+docker run --name myname httpd echo "Hello, World!"
+docker run -e MY_VAR=value http env   (-e -> environment)
+docker run -it -e MY_NAME=Vansh ubuntu bash
+
+multiple environment variable-> docker run -e APP_ENV=prod -e APP_VER=1.0 nginx
+
+pasing enviornment variable from host system->
+		set variable on host
+		export API_PORT=8080
+
+<---->docker run -d -p 3307:3306 --name mysql-test -e MYSQL_ROOT_PASSWORD=root123 mysql
+docker exec -it mysql-test bash
+mysql -h 127.0.0.1 -P 3306 -u root -p  , default host machine ip address -> 127.0.0.1
+
+docker ps
+
+docker run -it -e COLLEGE=CSE ubuntu /bin/bash
+
+docker ps -a (-a shows all containers whether running or stopped)
+
+docker exec -it <container_id> bash/env
+
+docker rmi image_id
+
+docker rmi -f <image_id> (forcefully stopped if image is running)
+
+docker run -d --name DB-app -p 80:8082 mongo
+docker ps
+
+docker run -d -p 8080:80 httpd
+
+
+docker pull httpd
+docker run -d -p 8080:80 apache httpd
+dcoker run -it container_id /bin/bash
+ls
+cd htdocs
+ls
+cat index.html
+
+
+docker pull httpd
+docker run -d --name my-apache -p 8080:80 httpd
+
+docker exec -it my-apache bash-c "echo'<h1>Hello from docker apache!</h1>'>/usr/local/apache2/htdocs/index.html"
+
+curl https://localhost:8080	(without curl , content will not be updated)
+docker stop my-apache
+
+docker rm my-apache
+
+
+
+QUESTION-> how would you use the docker run command with -it, -e,-v and --name to:
+	set an environment variable APP_ENV=production
+	bind a local directory /app/data to /data inside the container.
+	name the container my_app
+
+docker run -it --name my_app -e APP_ENV=production -v /app/data:/data ubuntu
+
+docker run -it -e APP_ENV=production ubuntu
+docker run --name my_app ubuntu
+docker run -v /app/data:/data
+
+DOCKER CONATINER COMMANDS
+
+	

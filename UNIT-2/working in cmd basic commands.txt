@@ -1,0 +1,146 @@
+Microsoft Windows [Version 10.0.19045.6466]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\DELL>docker --version
+Docker version 29.2.1, build a5c7197
+
+C:\Users\DELL>docker info
+Client:
+ Version:    29.2.1
+ Context:    desktop-linux
+ Debug Mode: false
+ Plugins:
+  agent: create or run AI agents (Docker Inc.)
+    Version:  v1.27.1
+    Path:     C:\Program Files\Docker\cli-plugins\docker-agent.exe
+  ai: Docker AI Agent - Ask Gordon (Docker Inc.)
+    Version:  v1.18.0
+    Path:     C:\Program Files\Docker\cli-plugins\docker-ai.exe
+  buildx: Docker Buildx (Docker Inc.)
+    Version:  v0.31.1-desktop.1
+    Path:     C:\Program Files\Docker\cli-plugins\docker-buildx.exe
+  compose: Docker Compose (Docker Inc.)
+    Version:  v5.1.0
+    Path:     C:\Program Files\Docker\cli-plugins\docker-compose.exe
+  debug: Get a shell into any image or container (Docker Inc.)
+    Version:  0.0.47
+    Path:     C:\Program Files\Docker\cli-plugins\docker-debug.exe
+  desktop: Docker Desktop commands (Docker Inc.)
+    Version:  v0.3.0
+    Path:     C:\Program Files\Docker\cli-plugins\docker-desktop.exe
+  init: Creates Docker-related starter files for your project (Docker Inc.)
+    Version:  v1.4.0
+    Path:     C:\Program Files\Docker\cli-plugins\docker-init.exe
+
+Server:
+ Containers: 8
+  Running: 1
+  Paused: 0
+  Stopped: 7
+ Images: 3
+ Server Version: 29.2.1
+ Storage Driver: overlayfs
+  driver-type: io.containerd.snapshotter.v1
+ Logging Driver: json-file
+ Cgroup Driver: cgroupfs
+ Cgroup Version: 2
+ Plugins:
+  Volume: local
+  Network: bridge host ipvlan macvlan null overlay
+  Log: awslogs fluentd gcplogs gelf journald json-file local splunk syslog
+ CDI spec directories:
+  /etc/cdi
+  /var/run/cdi
+ Discovered Devices:
+  cdi: docker.com/gpu=webgpu
+ Swarm: inactive
+ Runtimes: io.containerd.runc.v2 nvidia runc
+ Default Runtime: runc
+ Init Binary: docker-init
+ containerd version: dea7da592f5d1d2b7755e3a161be07f43fad8f75
+ runc version: v1.3.4-0-gd6d73eb8
+ init version: de40ad0
+ Security Options:
+  seccomp
+   Profile: builtin
+  cgroupns
+ Kernel Version: 6.6.87.2-microsoft-standard-WSL2
+ Operating System: Docker Desktop
+ OSType: linux
+ Architecture: x86_64
+ CPUs: 2
+ Total Memory: 1.764GiB
+ Name: docker-desktop
+ ID: 6010da3d-d962-422c-b815-43d91d28c04d
+ Docker Root Dir: /var/lib/docker
+ Debug Mode: false
+ HTTP Proxy: http.docker.internal:3128
+ HTTPS Proxy: http.docker.internal:3128
+ No Proxy: hubproxy.docker.internal
+ Labels:
+  com.docker.desktop.address=npipe://\\.\pipe\docker_cli
+ Experimental: false
+ Insecure Registries:
+  hubproxy.docker.internal:5555
+  127.0.0.0/8
+  ::1/128
+ Live Restore Enabled: false
+ Firewall Backend: iptables
+
+
+C:\Users\DELL>docker history httpd
+IMAGE          CREATED      CREATED BY                                      SIZE      COMMENT
+331548c5249b   7 days ago   CMD ["httpd-foreground"]                        0B        buildkit.dockerfile.v0
+<missing>      7 days ago   EXPOSE map[80/tcp:{}]                           0B        buildkit.dockerfile.v0
+<missing>      7 days ago   COPY httpd-foreground /usr/local/bin/ # buil…   20.5kB    buildkit.dockerfile.v0
+<missing>      7 days ago   STOPSIGNAL SIGWINCH                             0B        buildkit.dockerfile.v0
+<missing>      7 days ago   RUN /bin/sh -c set -eux;   savedAptMark="$(a…   34.9MB    buildkit.dockerfile.v0
+<missing>      7 days ago   ENV HTTPD_PATCHES=                              0B        buildkit.dockerfile.v0
+<missing>      7 days ago   ENV HTTPD_SHA256=94d7ff2b42acbb828e870ba29e4…   0B        buildkit.dockerfile.v0
+<missing>      7 days ago   ENV HTTPD_VERSION=2.4.66                        0B        buildkit.dockerfile.v0
+<missing>      7 days ago   RUN /bin/sh -c set -eux;  apt-get install --…   7.01MB    buildkit.dockerfile.v0
+<missing>      7 days ago   WORKDIR /usr/local/apache2                      4.1kB     buildkit.dockerfile.v0
+<missing>      7 days ago   RUN /bin/sh -c mkdir -p "$HTTPD_PREFIX"  && …   16.4kB    buildkit.dockerfile.v0
+<missing>      7 days ago   ENV PATH=/usr/local/apache2/bin:/usr/local/s…   0B        buildkit.dockerfile.v0
+<missing>      7 days ago   ENV HTTPD_PREFIX=/usr/local/apache2             0B        buildkit.dockerfile.v0
+<missing>      8 days ago   # debian.sh --arch 'amd64' out/ 'trixie' '@1…   87.4MB    debuerreotype 0.17
+
+C:\Users\DELL>docker history ubuntu
+IMAGE          CREATED       CREATED BY                                      SIZE      COMMENT
+0d39fcc8335d   4 weeks ago   /bin/sh -c #(nop)  CMD ["/bin/bash"]            0B
+<missing>      4 weeks ago   /bin/sh -c #(nop) ADD file:3f78aa860931e0853…   87.6MB
+<missing>      4 weeks ago   /bin/sh -c #(nop)  LABEL org.opencontainers.…   0B
+<missing>      4 weeks ago   /bin/sh -c #(nop)  LABEL org.opencontainers.…   0B
+<missing>      4 weeks ago   /bin/sh -c #(nop)  ARG LAUNCHPAD_BUILD_ARCH     0B
+<missing>      4 weeks ago   /bin/sh -c #(nop)  ARG RELEASE                  0B
+
+C:\Users\DELL>docker history nginx
+IMAGE          CREATED      CREATED BY                                      SIZE      COMMENT
+dec7a90bd097   7 days ago   CMD ["nginx" "-g" "daemon off;"]                0B        buildkit.dockerfile.v0
+<missing>      7 days ago   STOPSIGNAL SIGQUIT                              0B        buildkit.dockerfile.v0
+<missing>      7 days ago   EXPOSE map[80/tcp:{}]                           0B        buildkit.dockerfile.v0
+<missing>      7 days ago   ENTRYPOINT ["/docker-entrypoint.sh"]            0B        buildkit.dockerfile.v0
+<missing>      7 days ago   COPY 30-tune-worker-processes.sh /docker-ent…   16.4kB    buildkit.dockerfile.v0
+<missing>      7 days ago   COPY 20-envsubst-on-templates.sh /docker-ent…   12.3kB    buildkit.dockerfile.v0
+<missing>      7 days ago   COPY 15-local-resolvers.envsh /docker-entryp…   12.3kB    buildkit.dockerfile.v0
+<missing>      7 days ago   COPY 10-listen-on-ipv6-by-default.sh /docker…   12.3kB    buildkit.dockerfile.v0
+<missing>      7 days ago   COPY docker-entrypoint.sh / # buildkit          8.19kB    buildkit.dockerfile.v0
+<missing>      7 days ago   RUN /bin/sh -c set -x     && groupadd --syst…   86.7MB    buildkit.dockerfile.v0
+<missing>      7 days ago   ENV DYNPKG_RELEASE=1~trixie                     0B        buildkit.dockerfile.v0
+<missing>      7 days ago   ENV PKG_RELEASE=1~trixie                        0B        buildkit.dockerfile.v0
+<missing>      7 days ago   ENV ACME_VERSION=0.3.1                          0B        buildkit.dockerfile.v0
+<missing>      7 days ago   ENV NJS_RELEASE=1~trixie                        0B        buildkit.dockerfile.v0
+<missing>      7 days ago   ENV NJS_VERSION=0.9.6                           0B        buildkit.dockerfile.v0
+<missing>      7 days ago   ENV NGINX_VERSION=1.29.6                        0B        buildkit.dockerfile.v0
+<missing>      7 days ago   LABEL maintainer=NGINX Docker Maintainers <d…   0B        buildkit.dockerfile.v0
+<missing>      8 days ago   # debian.sh --arch 'amd64' out/ 'trixie' '@1…   87.4MB    debuerreotype 0.17
+
+C:\Users\DELL>docker pull httpd
+Using default tag: latest
+Error response from daemon: failed to resolve reference "docker.io/library/httpd:latest": failed to do request: Head "https://registry-1.docker.io/v2/library/httpd/manifests/latest": dialing registry-1.docker.io:443 container via direct connection because Docker Desktop has no HTTPS proxy: connecting to registry-1.docker.io:443: dial tcp: lookup registry-1.docker.io: no such host
+
+C:\Users\DELL>docker run -it -e MY=vansh ubuntu bash
+root@22ad008b45f7:/# exit
+exit
+
+C:\Users\DELL>
